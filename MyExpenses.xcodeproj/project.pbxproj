@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		7D25775723200EB50089422B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775523200EB50089422B /* Main.storyboard */; };
 		7D25775923200EB60089422B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775823200EB60089422B /* Assets.xcassets */; };
 		7D25775C23200EB60089422B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775A23200EB60089422B /* LaunchScreen.storyboard */; };
+		7D6D5C692320C5F700DC5953 /* CustomYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5C682320C5F700DC5953 /* CustomYearTableViewCell.swift */; };
+		7D6D5C6B2320C9E600DC5953 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5C6A2320C9E600DC5953 /* SwipeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		7D25775823200EB60089422B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D25775B23200EB60089422B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D25775D23200EB60089422B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D6D5C682320C5F700DC5953 /* CustomYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomYearTableViewCell.swift; sourceTree = "<group>"; };
+		7D6D5C6A2320C9E600DC5953 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		E7B98AC7764352783F3FC54E /* Pods_MyExpenses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyExpenses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,7 @@
 		7D25776423200F370089422B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7D6D5C672320C5DD00DC5953 /* CellsForTables */,
 				7D25775323200EB50089422B /* YearsViewController.swift */,
 			);
 			path = Controllers;
@@ -93,6 +98,15 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7D6D5C672320C5DD00DC5953 /* CellsForTables */ = {
+			isa = PBXGroup;
+			children = (
+				7D6D5C682320C5F700DC5953 /* CustomYearTableViewCell.swift */,
+				7D6D5C6A2320C9E600DC5953 /* SwipeTableViewController.swift */,
+			);
+			path = CellsForTables;
 			sourceTree = "<group>";
 		};
 		B13978D3B649457DDAD07F55 /* Frameworks */ = {
@@ -109,7 +123,6 @@
 				791E5CE0C2B716066084CB19 /* Pods-MyExpenses.debug.xcconfig */,
 				750FD47B7B094B4121F940E0 /* Pods-MyExpenses.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -228,8 +241,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D6D5C6B2320C9E600DC5953 /* SwipeTableViewController.swift in Sources */,
 				7D25775423200EB50089422B /* YearsViewController.swift in Sources */,
 				7D25775223200EB50089422B /* AppDelegate.swift in Sources */,
+				7D6D5C692320C5F700DC5953 /* CustomYearTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
