@@ -5,11 +5,28 @@
 //  Created by Julio Rico on 9/5/19.
 //  Copyright © 2019 Julio Rico. All rights reserved.
 //
-
+import RealmSwift
 import Foundation
 import UIKit
 
 class GlobalUtils {
+    static func addIconToTextField(textField: UITextField, imageName: String, isLeft: Bool) {
+        let heightImage = 20
+        let widthImage = 20
+        
+        let imageView = UIImageView()
+        let image = UIImage(named: imageName)
+        imageView.image = image
+        imageView.frame = CGRect(x: 5, y: 5, width: widthImage, height: heightImage)
+        if isLeft {
+            textField.leftView = imageView
+            textField.leftViewMode = .always
+        } else {
+            textField.rightView = imageView
+            textField.rightViewMode = .always
+        }
+    }
+    
     static func formatNumberToCurrency(value: Double) -> String {
         var valueAsCurrency: String = ""
         
@@ -26,6 +43,23 @@ class GlobalUtils {
         return valueAsCurrency
     }
     
+    static func changeHeightForTextField(textField: UITextField, desiredHeight: CGFloat) {
+        var frameRectangular = textField.frame
+        frameRectangular.size.height = desiredHeight
+        textField.frame = frameRectangular
+    }
+    
+    static func addBottomBorderToTextField(textField: UITextField) {
+        let border = CALayer()
+        let widthForBorder = CGFloat(1.0)
+        border.borderColor = UIColor.lightGray.cgColor
+        print(textField.frame.size.height - widthForBorder)
+        border.frame = CGRect(x: 0, y: textField.frame.size.height - widthForBorder, width: textField.frame.size.width, height: textField.frame.size.height)
+        border.borderWidth = widthForBorder
+        textField.layer.addSublayer(border)
+        textField.layer.masksToBounds = true
+    }
+    
     static func makeProgressBar(with amountSpent: Double, maximunValue: Double, labelForText: UILabel, viewToDraw: UIView){
         
         let width = viewToDraw.frame.width - 20
@@ -36,17 +70,17 @@ class GlobalUtils {
         
         if percentage > 0 && percentage <= 0.20{
             cgColorForProgessBar = UIColor(hexString: GlobalVariables.hexForPrimaryColor).cgColor
-        } else if percentage > 0.20  && percentage <= 0.60{
+        } else if percentage > 0.20  && percentage <= 0.60 {
             cgColorForProgessBar = UIColor.flatLime()?.cgColor ?? UIColor.orange.cgColor
-        } else if percentage > 0.60 && percentage <= 0.70{
+        } else if percentage > 0.60 && percentage <= 0.70 {
             cgColorForProgessBar = UIColor.flatYellow()?.cgColor ?? UIColor.yellow.cgColor
-        } else if percentage > 0.70 && percentage <= 0.80{
+        } else if percentage > 0.70 && percentage <= 0.80 {
             cgColorForProgessBar = UIColor.flatLime()?.cgColor ?? UIColor.red.cgColor
-        } else{
+        } else {
             cgColorForProgessBar = UIColor.flatRedColorDark()?.cgColor ?? UIColor.brown.cgColor
         }
         
-        if amountSpent >= maximunValue{
+        if amountSpent >= maximunValue {
             progressWidht = Double(width)
         }
         
@@ -63,4 +97,6 @@ class GlobalUtils {
         
         labelForText.text = "\(GlobalUtils.formatNumberToCurrency(value: amountSpent)) / \(String(format: "%.2f", (percentage * 100)) )%"
     }
+    
+    
 }

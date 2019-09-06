@@ -13,6 +13,15 @@
 		7D25775723200EB50089422B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775523200EB50089422B /* Main.storyboard */; };
 		7D25775923200EB60089422B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775823200EB60089422B /* Assets.xcassets */; };
 		7D25775C23200EB60089422B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775A23200EB60089422B /* LaunchScreen.storyboard */; };
+		7D4496B62322A2D000487004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496B52322A2D000487004 /* LoginViewController.swift */; };
+		7D4496B82322A2DC00487004 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496B72322A2DC00487004 /* RegisterViewController.swift */; };
+		7D4496BA2322A31400487004 /* CategoryForExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496B92322A31400487004 /* CategoryForExpense.swift */; };
+		7D4496BC2322A33700487004 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496BB2322A33700487004 /* Configuration.swift */; };
+		7D4496BE2322A36500487004 /* Years.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496BD2322A36500487004 /* Years.swift */; };
+		7D4496C02322A37800487004 /* Months.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496BF2322A37800487004 /* Months.swift */; };
+		7D4496C22322A4B100487004 /* AddNewYearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496C12322A4B100487004 /* AddNewYearViewController.swift */; };
+		7D4496C42322B58500487004 /* MyCustomToolBarForPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496C32322B58500487004 /* MyCustomToolBarForPicker.swift */; };
+		7D4496C62322B95800487004 /* MyRealmUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496C52322B95800487004 /* MyRealmUtils.swift */; };
 		7D4FC06A23220E370075029D /* MonthDetailWithProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FC06923220E370075029D /* MonthDetailWithProgressViewController.swift */; };
 		7D4FC06E2322108D0075029D /* CellForDataMonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FC06D2322108D0075029D /* CellForDataMonthTableViewCell.swift */; };
 		7D4FC07023221BDA0075029D /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FC06F23221BDA0075029D /* ConfigurationViewController.swift */; };
@@ -35,6 +44,15 @@
 		7D25775823200EB60089422B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D25775B23200EB60089422B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D25775D23200EB60089422B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D4496B52322A2D000487004 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7D4496B72322A2DC00487004 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		7D4496B92322A31400487004 /* CategoryForExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryForExpense.swift; sourceTree = "<group>"; };
+		7D4496BB2322A33700487004 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		7D4496BD2322A36500487004 /* Years.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Years.swift; sourceTree = "<group>"; };
+		7D4496BF2322A37800487004 /* Months.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Months.swift; sourceTree = "<group>"; };
+		7D4496C12322A4B100487004 /* AddNewYearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewYearViewController.swift; sourceTree = "<group>"; };
+		7D4496C32322B58500487004 /* MyCustomToolBarForPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomToolBarForPicker.swift; sourceTree = "<group>"; };
+		7D4496C52322B95800487004 /* MyRealmUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRealmUtils.swift; sourceTree = "<group>"; };
 		7D4FC06923220E370075029D /* MonthDetailWithProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDetailWithProgressViewController.swift; sourceTree = "<group>"; };
 		7D4FC06D2322108D0075029D /* CellForDataMonthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForDataMonthTableViewCell.swift; sourceTree = "<group>"; };
 		7D4FC06F23221BDA0075029D /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +126,9 @@
 				7D76EC5A232151E1006A9EF5 /* MonthGroupTableViewController.swift */,
 				7D4FC06923220E370075029D /* MonthDetailWithProgressViewController.swift */,
 				7D4FC06F23221BDA0075029D /* ConfigurationViewController.swift */,
+				7D4496B52322A2D000487004 /* LoginViewController.swift */,
+				7D4496B72322A2DC00487004 /* RegisterViewController.swift */,
+				7D4496C12322A4B100487004 /* AddNewYearViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -115,11 +136,25 @@
 		7D25776523200F400089422B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7D4496B42322A2C100487004 /* Realm */,
 				7DCE752423215E360078DB08 /* GlobalVariables.swift */,
 				7DCE7528232163CC0078DB08 /* MonthForDisplay.swift */,
 				7DCE752A232164AC0078DB08 /* GlobalUtils.swift */,
+				7D4496C32322B58500487004 /* MyCustomToolBarForPicker.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7D4496B42322A2C100487004 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				7D4496B92322A31400487004 /* CategoryForExpense.swift */,
+				7D4496BB2322A33700487004 /* Configuration.swift */,
+				7D4496BD2322A36500487004 /* Years.swift */,
+				7D4496BF2322A37800487004 /* Months.swift */,
+				7D4496C52322B95800487004 /* MyRealmUtils.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		7D6D5C672320C5DD00DC5953 /* CellsForTables */ = {
@@ -266,17 +301,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DCE752523215E360078DB08 /* GlobalVariables.swift in Sources */,
+				7D4496C62322B95800487004 /* MyRealmUtils.swift in Sources */,
 				7D4FC06E2322108D0075029D /* CellForDataMonthTableViewCell.swift in Sources */,
 				7D4FC06A23220E370075029D /* MonthDetailWithProgressViewController.swift in Sources */,
 				7D6D5C6B2320C9E600DC5953 /* SwipeTableViewController.swift in Sources */,
 				7D25775423200EB50089422B /* YearsViewController.swift in Sources */,
 				7D4FC07023221BDA0075029D /* ConfigurationViewController.swift in Sources */,
+				7D4496BC2322A33700487004 /* Configuration.swift in Sources */,
+				7D4496BA2322A31400487004 /* CategoryForExpense.swift in Sources */,
+				7D4496BE2322A36500487004 /* Years.swift in Sources */,
 				7DCE7529232163CC0078DB08 /* MonthForDisplay.swift in Sources */,
 				7DCE7527232160B50078DB08 /* MonthGroupTableViewCell.swift in Sources */,
 				7D76EC5B232151E1006A9EF5 /* MonthGroupTableViewController.swift in Sources */,
+				7D4496B82322A2DC00487004 /* RegisterViewController.swift in Sources */,
 				7D25775223200EB50089422B /* AppDelegate.swift in Sources */,
 				7DCE752B232164AC0078DB08 /* GlobalUtils.swift in Sources */,
+				7D4496B62322A2D000487004 /* LoginViewController.swift in Sources */,
+				7D4496C02322A37800487004 /* Months.swift in Sources */,
 				7D6D5C692320C5F700DC5953 /* CustomYearTableViewCell.swift in Sources */,
+				7D4496C42322B58500487004 /* MyCustomToolBarForPicker.swift in Sources */,
+				7D4496C22322A4B100487004 /* AddNewYearViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

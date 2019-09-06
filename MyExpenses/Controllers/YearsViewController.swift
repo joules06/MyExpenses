@@ -11,15 +11,21 @@ import SwipeCellKit
 import UIKit
 
 
-class YearsViewController: SwipeTableViewController {
+class YearsViewController: SwipeTableViewController, FloatyDelegate {
     @IBOutlet var myTableView: UITableView!
+    
+    var floaty = Floaty()
+    let segueIdForNextDetailsScene = "goToMonthGroup"
+    let segueIdForNextAddScene = "goToNewYear"
     
     let years: [Int] = [2018, 2019]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         myTableView.rowHeight = 60
+        
+        setupFloatyButton()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -47,6 +53,34 @@ class YearsViewController: SwipeTableViewController {
         cell.viewBehindYear.layer.cornerRadius = 20.0
         
         return cell
+    }
+    
+    func setupFloatyButton(){
+        let item = FloatyItem()
+        item.hasShadow = false
+        item.titleLabelPosition = .right
+        item.title = "New year"
+        item.icon = UIImage(named: "calendar")
+        item.handler = { item in
+            self.performSegue(withIdentifier: self.segueIdForNextAddScene, sender: self)
+            self.floaty.close()
+        }
+        
+        floaty.hasShadow = false
+        
+        floaty.addItem(item: item)
+        //floaty.paddingX = self.view.frame.width/2 - floaty.frame.width/2
+        floaty.paddingX = self.tableView.frame.width/2 - floaty.frame.width/2
+        floaty.sticky = true
+        floaty.fabDelegate = self
+        floaty.buttonColor = UIColor(hexString: GlobalVariables.hexForPrimaryColor)
+        floaty.buttonImage = UIImage(named: "add")
+        floaty.items[0].titleLabelPosition = .right
+        
+        floaty.paddingY =  150//GlobalVariables.heightForTabBar
+        
+        tableView.addSubview(floaty)
+        
     }
 
 }
