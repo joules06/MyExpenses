@@ -13,6 +13,9 @@
 		7D25775723200EB50089422B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775523200EB50089422B /* Main.storyboard */; };
 		7D25775923200EB60089422B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775823200EB60089422B /* Assets.xcassets */; };
 		7D25775C23200EB60089422B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775A23200EB60089422B /* LaunchScreen.storyboard */; };
+		7D4FC06A23220E370075029D /* MonthDetailWithProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FC06923220E370075029D /* MonthDetailWithProgressViewController.swift */; };
+		7D4FC06E2322108D0075029D /* CellForDataMonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FC06D2322108D0075029D /* CellForDataMonthTableViewCell.swift */; };
+		7D4FC07023221BDA0075029D /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FC06F23221BDA0075029D /* ConfigurationViewController.swift */; };
 		7D6D5C692320C5F700DC5953 /* CustomYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5C682320C5F700DC5953 /* CustomYearTableViewCell.swift */; };
 		7D6D5C6B2320C9E600DC5953 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5C6A2320C9E600DC5953 /* SwipeTableViewController.swift */; };
 		7D76EC5B232151E1006A9EF5 /* MonthGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76EC5A232151E1006A9EF5 /* MonthGroupTableViewController.swift */; };
@@ -32,6 +35,9 @@
 		7D25775823200EB60089422B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D25775B23200EB60089422B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D25775D23200EB60089422B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D4FC06923220E370075029D /* MonthDetailWithProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthDetailWithProgressViewController.swift; sourceTree = "<group>"; };
+		7D4FC06D2322108D0075029D /* CellForDataMonthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForDataMonthTableViewCell.swift; sourceTree = "<group>"; };
+		7D4FC06F23221BDA0075029D /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		7D6D5C682320C5F700DC5953 /* CustomYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomYearTableViewCell.swift; sourceTree = "<group>"; };
 		7D6D5C6A2320C9E600DC5953 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		7D76EC5A232151E1006A9EF5 /* MonthGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGroupTableViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +106,8 @@
 				7D6D5C672320C5DD00DC5953 /* CellsForTables */,
 				7D25775323200EB50089422B /* YearsViewController.swift */,
 				7D76EC5A232151E1006A9EF5 /* MonthGroupTableViewController.swift */,
+				7D4FC06923220E370075029D /* MonthDetailWithProgressViewController.swift */,
+				7D4FC06F23221BDA0075029D /* ConfigurationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -120,6 +128,7 @@
 				7D6D5C682320C5F700DC5953 /* CustomYearTableViewCell.swift */,
 				7D6D5C6A2320C9E600DC5953 /* SwipeTableViewController.swift */,
 				7DCE7526232160B50078DB08 /* MonthGroupTableViewCell.swift */,
+				7D4FC06D2322108D0075029D /* CellForDataMonthTableViewCell.swift */,
 			);
 			path = CellsForTables;
 			sourceTree = "<group>";
@@ -257,8 +266,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DCE752523215E360078DB08 /* GlobalVariables.swift in Sources */,
+				7D4FC06E2322108D0075029D /* CellForDataMonthTableViewCell.swift in Sources */,
+				7D4FC06A23220E370075029D /* MonthDetailWithProgressViewController.swift in Sources */,
 				7D6D5C6B2320C9E600DC5953 /* SwipeTableViewController.swift in Sources */,
 				7D25775423200EB50089422B /* YearsViewController.swift in Sources */,
+				7D4FC07023221BDA0075029D /* ConfigurationViewController.swift in Sources */,
 				7DCE7529232163CC0078DB08 /* MonthForDisplay.swift in Sources */,
 				7DCE7527232160B50078DB08 /* MonthGroupTableViewCell.swift in Sources */,
 				7D76EC5B232151E1006A9EF5 /* MonthGroupTableViewController.swift in Sources */,
