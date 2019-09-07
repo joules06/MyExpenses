@@ -98,5 +98,13 @@ class GlobalUtils {
         labelForText.text = "\(GlobalUtils.formatNumberToCurrency(value: amountSpent)) / \(String(format: "%.2f", (percentage * 100)) )%"
     }
     
+    static func prepopulateCategoriesForExpense(with realm: Realm) {
+        let categories = ["Food", "Entreteinment", "School", "Health", "Clothes", "Games"]
+        
+        for category in categories {
+            MyRealmUtils.addOrUpdateCategoryForExpense(with: category, realm: realm)
+        }
+    }
+    
     
 }

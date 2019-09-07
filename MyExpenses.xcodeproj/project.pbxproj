@@ -13,6 +13,7 @@
 		7D25775723200EB50089422B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775523200EB50089422B /* Main.storyboard */; };
 		7D25775923200EB60089422B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775823200EB60089422B /* Assets.xcassets */; };
 		7D25775C23200EB60089422B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775A23200EB60089422B /* LaunchScreen.storyboard */; };
+		7D3E5C6D232423F1003A54EA /* PopUpCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E5C6C232423F1003A54EA /* PopUpCalendarViewController.swift */; };
 		7D4496B62322A2D000487004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496B52322A2D000487004 /* LoginViewController.swift */; };
 		7D4496B82322A2DC00487004 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496B72322A2DC00487004 /* RegisterViewController.swift */; };
 		7D4496BA2322A31400487004 /* CategoryForExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496B92322A31400487004 /* CategoryForExpense.swift */; };
@@ -46,6 +47,7 @@
 		7D25775823200EB60089422B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D25775B23200EB60089422B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D25775D23200EB60089422B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D3E5C6C232423F1003A54EA /* PopUpCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCalendarViewController.swift; sourceTree = "<group>"; };
 		7D4496B52322A2D000487004 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7D4496B72322A2DC00487004 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		7D4496B92322A31400487004 /* CategoryForExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryForExpense.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				7D4496B72322A2DC00487004 /* RegisterViewController.swift */,
 				7D4496C12322A4B100487004 /* AddNewYearViewController.swift */,
 				7DD728C423236AC200EE815D /* AddNewMonthViewController.swift */,
+				7D3E5C6C232423F1003A54EA /* PopUpCalendarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				7D25775223200EB50089422B /* AppDelegate.swift in Sources */,
 				7DCE752B232164AC0078DB08 /* GlobalUtils.swift in Sources */,
 				7D4496B62322A2D000487004 /* LoginViewController.swift in Sources */,
+				7D3E5C6D232423F1003A54EA /* PopUpCalendarViewController.swift in Sources */,
 				7D4496C02322A37800487004 /* Months.swift in Sources */,
 				7D6D5C692320C5F700DC5953 /* CustomYearTableViewCell.swift in Sources */,
 				7D4496C42322B58500487004 /* MyCustomToolBarForPicker.swift in Sources */,
