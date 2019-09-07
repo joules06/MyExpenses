@@ -15,4 +15,5 @@ target 'MyExpenses' do
 	pod 'SwipeCellKit'
 	pod 'Charts'
 	pod 'PopupDialog', '~> 1.1'
+  pod 'JTAppleCalendar', '~> 7.1'
 end

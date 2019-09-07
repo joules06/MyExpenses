@@ -77,7 +77,7 @@ class AddNewYearViewController: UIViewController {
             
             resultForSavingData = saveDataToRealm(newYear: newYear)
 
-            showPopForAction(message: "Guardado")
+            showPopForAction(message: "Saved")
             
         }
     }

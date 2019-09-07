@@ -32,6 +32,8 @@
 		7DCE7527232160B50078DB08 /* MonthGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE7526232160B50078DB08 /* MonthGroupTableViewCell.swift */; };
 		7DCE7529232163CC0078DB08 /* MonthForDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE7528232163CC0078DB08 /* MonthForDisplay.swift */; };
 		7DCE752B232164AC0078DB08 /* GlobalUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DCE752A232164AC0078DB08 /* GlobalUtils.swift */; };
+		7DD728C32323676600EE815D /* YearAndMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD728C22323676600EE815D /* YearAndMonth.swift */; };
+		7DD728C523236AC200EE815D /* AddNewMonthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD728C423236AC200EE815D /* AddNewMonthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		7DCE7526232160B50078DB08 /* MonthGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGroupTableViewCell.swift; sourceTree = "<group>"; };
 		7DCE7528232163CC0078DB08 /* MonthForDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthForDisplay.swift; sourceTree = "<group>"; };
 		7DCE752A232164AC0078DB08 /* GlobalUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUtils.swift; sourceTree = "<group>"; };
+		7DD728C22323676600EE815D /* YearAndMonth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearAndMonth.swift; sourceTree = "<group>"; };
+		7DD728C423236AC200EE815D /* AddNewMonthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMonthViewController.swift; sourceTree = "<group>"; };
 		E7B98AC7764352783F3FC54E /* Pods_MyExpenses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyExpenses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +133,7 @@
 				7D4496B52322A2D000487004 /* LoginViewController.swift */,
 				7D4496B72322A2DC00487004 /* RegisterViewController.swift */,
 				7D4496C12322A4B100487004 /* AddNewYearViewController.swift */,
+				7DD728C423236AC200EE815D /* AddNewMonthViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				7DCE7528232163CC0078DB08 /* MonthForDisplay.swift */,
 				7DCE752A232164AC0078DB08 /* GlobalUtils.swift */,
 				7D4496C32322B58500487004 /* MyCustomToolBarForPicker.swift */,
+				7DD728C22323676600EE815D /* YearAndMonth.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -305,11 +311,13 @@
 				7D4FC06E2322108D0075029D /* CellForDataMonthTableViewCell.swift in Sources */,
 				7D4FC06A23220E370075029D /* MonthDetailWithProgressViewController.swift in Sources */,
 				7D6D5C6B2320C9E600DC5953 /* SwipeTableViewController.swift in Sources */,
+				7DD728C32323676600EE815D /* YearAndMonth.swift in Sources */,
 				7D25775423200EB50089422B /* YearsViewController.swift in Sources */,
 				7D4FC07023221BDA0075029D /* ConfigurationViewController.swift in Sources */,
 				7D4496BC2322A33700487004 /* Configuration.swift in Sources */,
 				7D4496BA2322A31400487004 /* CategoryForExpense.swift in Sources */,
 				7D4496BE2322A36500487004 /* Years.swift in Sources */,
+				7DD728C523236AC200EE815D /* AddNewMonthViewController.swift in Sources */,
 				7DCE7529232163CC0078DB08 /* MonthForDisplay.swift in Sources */,
 				7DCE7527232160B50078DB08 /* MonthGroupTableViewCell.swift in Sources */,
 				7D76EC5B232151E1006A9EF5 /* MonthGroupTableViewController.swift in Sources */,

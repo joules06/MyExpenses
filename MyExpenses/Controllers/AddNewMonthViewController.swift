@@ -1,5 +1,5 @@
 //
-//  RegisterViewController.swift
+//  AddNewMonthViewController.swift
 //  MyExpenses
 //
 //  Created by Julio Rico on 9/6/19.
@@ -8,12 +8,13 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class AddNewMonthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
 
 }

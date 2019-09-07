@@ -5,11 +5,20 @@
 //  Created by Julio Rico on 9/5/19.
 //  Copyright © 2019 Julio Rico. All rights reserved.
 //
-
+import Floaty
+import RealmSwift
 import UIKit
 
+
 class MonthGroupTableViewController: UITableViewController {
+    let realm = try! Realm()
+    var monthItems : Results<Months>?
     var arrayOfMonth = [MonthForDisplay]()
+    var selectedYear: Years? {
+        didSet {
+            loadData()
+        }
+    }
     
     let arrayOfImages = [
         UIImage(named: "january"),
@@ -33,26 +42,87 @@ class MonthGroupTableViewController: UITableViewController {
         
         return maxOffset + cellHeight
     }
+    
+    var floaty = Floaty()
+    
+    let segueIdForNextAddScene = "goToAddMonth"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadData()
+        setupFloatyButton()
         tableView.separatorStyle = .none
     }
     
-    //MARK: - Data
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let dataForYear = selectedYear {
+            title = dataForYear.year
+        }
+        loadData()
+        tableView.reloadData()
+    }
+    
+    // MARK: - Funcionts for Realm
     func loadData() {
+        monthItems = selectedYear?.months.sorted(byKeyPath: "month", ascending: true)
         arrayOfMonth = [MonthForDisplay]()
         
         for valueFromDictonary in GlobalVariables.monthsStringAndIntegers {
-             let monthForDisplay = MonthForDisplay(monthInString: valueFromDictonary.value, monthInNumber: valueFromDictonary.key, totalSpent: 0.0, hasValue: false)
+            
+            var totalSpent = 0.0
+            let predicate = NSPredicate(format: "month = %d", valueFromDictonary.key)
+            let resultsForMonth = monthItems?.filter(predicate)
+            
+            
+            let monthForDisplay = MonthForDisplay(monthInString: valueFromDictonary.value, monthInNumber: valueFromDictonary.key, totalSpent: 0.0, hasValue: false)
+            
+            if let monthInRealm = resultsForMonth {
+                if monthInRealm.count > 0{
+                    monthForDisplay.hasValue = true
+                    
+                    for index in 0...monthInRealm.count - 1{
+                        totalSpent += monthInRealm[index].amountSpent
+                    }
+                    
+                    monthForDisplay.totalSpent = totalSpent
+                }
+            }
             
             arrayOfMonth.append(monthForDisplay)
         }
-        
         arrayOfMonth = arrayOfMonth.sorted(by: { $0.monthInNumber < $1.monthInNumber })
-       
+        
+    }
+    
+    //MARK: - Floaty functions
+    func setupFloatyButton() {
+        let item = FloatyItem()
+        item.hasShadow = false
+        item.titleLabelPosition = .right
+        item.title = "Nuevo gasto"
+        item.icon = UIImage(named: "dollar")
+        item.handler = { item in
+            self.performSegue(withIdentifier: self.segueIdForNextAddScene, sender: self)
+            self.floaty.close()
+        }
+        
+        floaty.hasShadow = false
+        
+        floaty.addItem(item: item)
+        //        floaty.paddingX = self.tableView.frame.width/2 - floaty.frame.width/2
+        
+        floaty.paddingX = self.view.frame.width/2 - floaty.frame.width/2
+        floaty.sticky = true
+        floaty.fabDelegate = self
+        floaty.buttonColor = UIColor(hexString: GlobalVariables.hexForSecondColor)
+        floaty.buttonImage = UIImage(named: "custom-add")
+        floaty.items[0].titleLabelPosition = .right
+        
+        //        self.tableView.addSubview(floaty)
+        self.view.addSubview(floaty)
     }
     
     //MARK: - Functions for Parallax effect
@@ -69,12 +139,10 @@ class MonthGroupTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return arrayOfMonth.count
     }
 
@@ -100,5 +168,31 @@ class MonthGroupTableViewController: UITableViewController {
         performSegue(withIdentifier: "gotoMonthDetailsWithProgress", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case segueIdForNextAddScene:
+//            let destinationVC = segue.destination as! AddNewMonthViewController
+//            destinationVC.selectedYear = selectedYear
+            break
+        case "gotoMonthDetailsWithProgress":
+            //let destinationVC = segue.destination as! MonthDetailsTableViewController
+            let destinationVC = segue.destination as! MonthDetailWithProgressViewController
+            
+            if let indexPath = tableView.indexPathForSelectedRow,
+                let yearSelected = selectedYear?.year{
+                
+                let infoForNextController = YearAndMonth(year: yearSelected, month: arrayOfMonth[indexPath.row].monthInNumber, monthInString: arrayOfMonth[indexPath.row].monthInString)
+                
+                destinationVC.didSelectMonthAndYear = infoForNextController
+            }
+        default:
+            fatalError("No valid identifier")
+        }
+        
+    }
+    
+}
 
+extension MonthGroupTableViewController: FloatyDelegate {
+    
 }

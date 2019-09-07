@@ -7,6 +7,7 @@
 //
 
 import ChameleonFramework
+import RealmSwift
 import SwipeCellKit
 import UIKit
 
@@ -16,6 +17,13 @@ class MonthDetailWithProgressViewController: UIViewController {
     @IBOutlet weak var viewForProgress: UIView!
     
     let array: [Double] = [10.5, 20.5, 30.0]
+    
+    let realm = try! Realm()
+    var didSelectMonthAndYear: YearAndMonth?{
+        didSet{
+//            loadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,6 +7,7 @@
 //
 import ChameleonFramework
 import Floaty
+import RealmSwift
 import SwipeCellKit
 import UIKit
 
@@ -15,10 +16,12 @@ class YearsViewController: SwipeTableViewController, FloatyDelegate {
     @IBOutlet var myTableView: UITableView!
     
     var floaty = Floaty()
-    let segueIdForNextDetailsScene = "goToMonthGroup"
+    let segueIdForNextDetailsScene = "goToMonths"
     let segueIdForNextAddScene = "goToNewYear"
+    var yearsArray: Results<Years>?
+    let realm = try! Realm()
+    var spendFromYears: [Double] = [Double]()
     
-    let years: [Int] = [2018, 2019]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,21 +29,46 @@ class YearsViewController: SwipeTableViewController, FloatyDelegate {
         myTableView.rowHeight = 60
         
         setupFloatyButton()
+        loadDataFromRealm()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        loadDataFromRealm()
+    }
+    
+    //MARK: - Table View Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToMonths", sender: self)
+        performSegue(withIdentifier: segueIdForNextDetailsScene, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueIdForNextDetailsScene{
+            let destinationVC = segue.destination as! MonthGroupTableViewController
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                destinationVC.selectedYear = yearsArray?[indexPath.row]
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return years.count
+        return yearsArray?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAt: indexPath) as! CustomYearTableViewCell
-        cell.labelForExpense.text = String(years[indexPath.row])
+        guard let yearFromRealm = yearsArray?[indexPath.row] else {
+            fatalError("Cannot get year")
+        }
         
-        //setup decorative form for year
+        let total = yearFromRealm.months.sum(ofProperty: "amountSpent") as Double
+        
+        
+        cell.labelForExpense.text = GlobalUtils.formatNumberToCurrency(value: total)
+        cell.labelForYearCell.text = yearFromRealm.year
+        
+        //setup for view
         cell.viewBehindYear.layer.borderWidth = 1
         
         let colors:[UIColor] = [
@@ -55,7 +83,8 @@ class YearsViewController: SwipeTableViewController, FloatyDelegate {
         return cell
     }
     
-    func setupFloatyButton(){
+    //MARK: - Floaty button
+    func setupFloatyButton() {
         let item = FloatyItem()
         item.hasShadow = false
         item.titleLabelPosition = .right
@@ -77,10 +106,54 @@ class YearsViewController: SwipeTableViewController, FloatyDelegate {
         floaty.buttonImage = UIImage(named: "add")
         floaty.items[0].titleLabelPosition = .right
         
-        floaty.paddingY =  150//GlobalVariables.heightForTabBar
+        floaty.paddingY =  120
         
         tableView.addSubview(floaty)
         
+    }
+    
+    //MARK: - Realm methods
+    func loadDataFromRealm() {
+        yearsArray = realm.objects(Years.self).sorted(byKeyPath: "year", ascending: false)
+        self.tableView.reloadData()
+    }
+    
+    func saveDataToRealm(newYear: Years) {
+        do{
+            try realm.write {
+                //realm.add(newYear, update: true)
+                realm.add(newYear, update: .modified)
+            }
+        }catch{
+            print("Error saving data to realm \(error)")
+        }
+        
+        tableView.reloadData()
+    }
+    
+    func fillArrayOfSpentFromYear() {
+        spendFromYears.removeAll()
+        var sum: Double = 0.0
+        if let secureYearArray = yearsArray {
+            for year in secureYearArray{
+                sum = year.months.sum(ofProperty: "amountSpent") as Double
+                
+                spendFromYears.append(sum)
+            }
+        }
+    }
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let year = yearsArray?[indexPath.row]{
+            do {
+                try realm.write {
+                    realm.delete(year)
+                }
+            }catch {
+                print("error deleting \(error)")
+            }
+            
+        }
     }
 
 }
