@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 class GlobalUtils {
+    static func getCurrentYear() -> Int {
+        let date = Date()
+        let calendar = Calendar.current
+        return calendar.component(.year, from: date)
+    }
+    
     static func addIconToTextField(textField: UITextField, imageName: String, isLeft: Bool) {
         let heightImage = 20
         let widthImage = 20

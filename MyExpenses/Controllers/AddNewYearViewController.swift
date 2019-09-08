@@ -39,6 +39,7 @@ class AddNewYearViewController: UIViewController {
         addToolBarToPickerView()
         setUpTextFileds()
         addDoneButtonOnKeyboard()
+        updateAppTheme()
         
         self.textFieldForMaxExpense.keyboardType = .decimalPad
         self.pickerForYears.delegate = self
@@ -139,17 +140,12 @@ class AddNewYearViewController: UIViewController {
     
     //MARK: - Functions for buttons and validate form
     @objc func donePicker (sender:UIBarButtonItem) {
-//        DispatchQueue.main.async {
-//            self.textFieldForYear.resignFirstResponder()
-//        }
+
         self.textFieldForYear.resignFirstResponder()
     }
     
     @objc func cancelPicker (sender:UIBarButtonItem) {
-//        DispatchQueue.main.async {
-//            self.textFieldForYear.text = ""
-//            self.textFieldForYear.resignFirstResponder()
-//        }
+
         self.textFieldForYear.text = ""
         self.textFieldForYear.resignFirstResponder()
         
@@ -239,6 +235,24 @@ class AddNewYearViewController: UIViewController {
         
         
         self.present(popup, animated: true, completion: nil)
+    }
+    
+    //MARK: - Functions for appearance
+    func updateAppTheme() {
+        let primaryColor = UIColor(hexString: GlobalVariables.hexForPrimaryColor)
+        let selectedColor = primaryColor
+        
+        navigationController?.navigationBar.barTintColor = selectedColor
+        guard let contrastingColor = UIColor(contrastingBlackOrWhiteColorOn:selectedColor, isFlat: true) else{
+            return
+        }
+        
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : contrastingColor]
+        buttonForSaveData.backgroundColor = selectedColor
+        buttonForCancelSaveData.backgroundColor = selectedColor
+        
+        buttonForSaveData.tintColor = UIColor.white
+        buttonForCancelSaveData.tintColor = UIColor.white
     }
     
 }

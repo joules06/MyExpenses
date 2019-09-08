@@ -120,6 +120,7 @@ class MonthGroupTableViewController: UITableViewController {
         floaty.buttonColor = UIColor(hexString: GlobalVariables.hexForSecondColor)
         floaty.buttonImage = UIImage(named: "custom-add")
         floaty.items[0].titleLabelPosition = .right
+        floaty.paddingY = 150
         
         //        self.tableView.addSubview(floaty)
         self.view.addSubview(floaty)
@@ -171,11 +172,11 @@ class MonthGroupTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case segueIdForNextAddScene:
-//            let destinationVC = segue.destination as! AddNewMonthViewController
-//            destinationVC.selectedYear = selectedYear
+            let destinationVC = segue.destination as! AddNewMonthViewController
+            destinationVC.selectedYear = selectedYear
             break
         case "gotoMonthDetailsWithProgress":
-            //let destinationVC = segue.destination as! MonthDetailsTableViewController
+            
             let destinationVC = segue.destination as! MonthDetailWithProgressViewController
             
             if let indexPath = tableView.indexPathForSelectedRow,

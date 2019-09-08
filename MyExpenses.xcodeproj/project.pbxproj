@@ -13,6 +13,8 @@
 		7D25775723200EB50089422B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775523200EB50089422B /* Main.storyboard */; };
 		7D25775923200EB60089422B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775823200EB60089422B /* Assets.xcassets */; };
 		7D25775C23200EB60089422B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775A23200EB60089422B /* LaunchScreen.storyboard */; };
+		7D2784F823245AFE00516616 /* CustomCellForCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D2784F723245AFE00516616 /* CustomCellForCalendar.swift */; };
+		7D3ADFAB2324AECA0023498D /* todo.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 7D3ADFAA2324AECA0023498D /* todo.rtf */; };
 		7D3E5C6D232423F1003A54EA /* PopUpCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D3E5C6C232423F1003A54EA /* PopUpCalendarViewController.swift */; };
 		7D4496B62322A2D000487004 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496B52322A2D000487004 /* LoginViewController.swift */; };
 		7D4496B82322A2DC00487004 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4496B72322A2DC00487004 /* RegisterViewController.swift */; };
@@ -47,6 +49,8 @@
 		7D25775823200EB60089422B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D25775B23200EB60089422B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D25775D23200EB60089422B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D2784F723245AFE00516616 /* CustomCellForCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellForCalendar.swift; sourceTree = "<group>"; };
+		7D3ADFAA2324AECA0023498D /* todo.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = todo.rtf; sourceTree = "<group>"; };
 		7D3E5C6C232423F1003A54EA /* PopUpCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpCalendarViewController.swift; sourceTree = "<group>"; };
 		7D4496B52322A2D000487004 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7D4496B72322A2DC00487004 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 		7D25774523200EB50089422B = {
 			isa = PBXGroup;
 			children = (
+				7D3ADFAA2324AECA0023498D /* todo.rtf */,
 				7D25775023200EB50089422B /* MyExpenses */,
 				7D25774F23200EB50089422B /* Products */,
 				D708C77BA67C05C48E550803 /* Pods */,
@@ -173,6 +178,7 @@
 				7D6D5C6A2320C9E600DC5953 /* SwipeTableViewController.swift */,
 				7DCE7526232160B50078DB08 /* MonthGroupTableViewCell.swift */,
 				7D4FC06D2322108D0075029D /* CellForDataMonthTableViewCell.swift */,
+				7D2784F723245AFE00516616 /* CustomCellForCalendar.swift */,
 			);
 			path = CellsForTables;
 			sourceTree = "<group>";
@@ -254,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D3ADFAB2324AECA0023498D /* todo.rtf in Resources */,
 				7D25775C23200EB60089422B /* LaunchScreen.storyboard in Resources */,
 				7D25775923200EB60089422B /* Assets.xcassets in Resources */,
 				7D25775723200EB50089422B /* Main.storyboard in Resources */,
@@ -327,6 +334,7 @@
 				7D4496B82322A2DC00487004 /* RegisterViewController.swift in Sources */,
 				7D25775223200EB50089422B /* AppDelegate.swift in Sources */,
 				7DCE752B232164AC0078DB08 /* GlobalUtils.swift in Sources */,
+				7D2784F823245AFE00516616 /* CustomCellForCalendar.swift in Sources */,
 				7D4496B62322A2D000487004 /* LoginViewController.swift in Sources */,
 				7D3E5C6D232423F1003A54EA /* PopUpCalendarViewController.swift in Sources */,
 				7D4496C02322A37800487004 /* Months.swift in Sources */,

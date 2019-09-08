@@ -51,6 +51,7 @@ class AddNewMonthViewController: UIViewController {
         addToolBarToPickerView()
         
         setUpTextFileds()
+        updateAppTheme()
         
         getMonthDetailsForYear()
         prePoluateCategoriesController()
@@ -109,7 +110,7 @@ class AddNewMonthViewController: UIViewController {
         
         resultForSavingData = saveDataToRealm(newMonth: newMonth)
         
-        showPopForAction(message: "Guardado")
+        showPopForAction(message: "Saved")
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
@@ -163,6 +164,23 @@ class AddNewMonthViewController: UIViewController {
         buttonForSaveData.isEnabled = false
         
         addDoneButtonOnKeyboard()
+    }
+    
+    func updateAppTheme() {
+        let primaryColor = UIColor(hexString: GlobalVariables.hexForPrimaryColor)
+        let selectedColor = primaryColor
+        
+        navigationController?.navigationBar.barTintColor = selectedColor
+        guard let contrastingColor = UIColor(contrastingBlackOrWhiteColorOn:selectedColor, isFlat: true) else{
+            return
+        }
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : contrastingColor]
+        
+        buttonForSaveData.backgroundColor = selectedColor
+        buttonForCancelSaveData.backgroundColor = selectedColor
+        
+        buttonForSaveData.tintColor = UIColor.white
+        buttonForCancelSaveData.tintColor = UIColor.white
     }
     
     fileprivate func addDoneButtonOnKeyboard() {
@@ -221,7 +239,7 @@ class AddNewMonthViewController: UIViewController {
             return (false, nil)
         }
         
-        return (text.count > 0, "Debes agregar un valor.")
+        return (text.count > 0, "You must enter a value.")
     }
     
     fileprivate func validateSaveButton() {
@@ -266,7 +284,7 @@ class AddNewMonthViewController: UIViewController {
     }
     
     private func showPopForAction(message: String) {
-        let popup = PopupDialog(title: "Agregar nuevo mes", message: message)
+        let popup = PopupDialog(title: "Add new Expense", message: message)
         var buttons = [PopupDialogButton]()
         
         
