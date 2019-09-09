@@ -855,40 +855,96 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pxC-UL-9Nl">
-                                <rect key="frame" x="159" y="317" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-5g-Qsw">
-                                <rect key="frame" x="159" y="433" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfF-me-8yS">
-                                <rect key="frame" x="181" y="605" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="register"/>
-                                <connections>
-                                    <segue destination="2Xm-pr-PLj" kind="show" id="CPO-kU-Wru"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIV-tj-Dlk">
-                                <rect key="frame" x="190" y="524" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="login"/>
-                                <connections>
-                                    <segue destination="Ds6-sP-d6Y" kind="show" id="fvD-My-Yxc"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="84" translatesAutoresizingMaskIntoConstraints="NO" id="bOn-Pa-giG">
+                                <rect key="frame" x="16" y="221" width="382" height="454"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expenses_v1" translatesAutoresizingMaskIntoConstraints="NO" id="0kH-aJ-Nnd">
+                                        <rect key="frame" x="143" y="0.0" width="96" height="96"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="QBS-Xo-cNZ" userLabel="TextFieldsStack View">
+                                        <rect key="frame" x="0.0" y="180" width="382" height="80"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pxC-UL-9Nl">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ziq-yK-Qnm"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ak8-5g-Qsw">
+                                                <rect key="frame" x="0.0" y="50" width="382" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="qCP-e2-F6F"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="eoT-9S-KXw" userLabel="ButtonsStack View">
+                                        <rect key="frame" x="0.0" y="344" width="382" height="110"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIV-tj-Dlk">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="ZSO-AY-1iK"/>
+                                                </constraints>
+                                                <state key="normal" title="login"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="Ds6-sP-d6Y" kind="show" id="fvD-My-Yxc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfF-me-8yS">
+                                                <rect key="frame" x="0.0" y="70" width="382" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="1nd-rD-J7y"/>
+                                                </constraints>
+                                                <state key="normal" title="register"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="2Xm-pr-PLj" kind="show" id="CPO-kU-Wru"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="QBS-Xo-cNZ" secondAttribute="trailing" id="IRj-xm-C7g"/>
+                                    <constraint firstItem="eoT-9S-KXw" firstAttribute="leading" secondItem="bOn-Pa-giG" secondAttribute="leading" id="iCb-u5-iID"/>
+                                    <constraint firstItem="QBS-Xo-cNZ" firstAttribute="leading" secondItem="bOn-Pa-giG" secondAttribute="leading" id="tkS-lH-KMV"/>
+                                    <constraint firstAttribute="trailing" secondItem="eoT-9S-KXw" secondAttribute="trailing" id="um4-yh-PmU"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bOn-Pa-giG" firstAttribute="centerY" secondItem="4aj-t7-gfV" secondAttribute="centerY" id="S42-bF-TEB"/>
+                            <constraint firstItem="bOn-Pa-giG" firstAttribute="leading" secondItem="HzI-EC-cGa" secondAttribute="leading" constant="16" id="WJB-NY-PfM"/>
+                            <constraint firstItem="HzI-EC-cGa" firstAttribute="trailing" secondItem="bOn-Pa-giG" secondAttribute="trailing" constant="16" id="vfJ-rc-Hrt"/>
+                            <constraint firstItem="bOn-Pa-giG" firstAttribute="centerX" secondItem="4aj-t7-gfV" secondAttribute="centerX" id="yw8-3i-hFp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HzI-EC-cGa"/>
                     </view>
+                    <connections>
+                        <outlet property="buttonForLogin" destination="lIV-tj-Dlk" id="BFO-Mh-ViY"/>
+                        <outlet property="buttonForSingUp" destination="qfF-me-8yS" id="E4E-Fg-khI"/>
+                        <outlet property="textFieldForEmail" destination="pxC-UL-9Nl" id="hcP-xN-Pj8"/>
+                        <outlet property="textFieldForPassword" destination="Ak8-5g-Qsw" id="nsp-jB-RaQ"/>
+                        <outletCollection property="allTextFields" destination="pxC-UL-9Nl" collectionClass="NSMutableArray" id="mDJ-hf-mKJ"/>
+                        <outletCollection property="allTextFields" destination="Ak8-5g-Qsw" collectionClass="NSMutableArray" id="KYq-4H-vEg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2r-An-xCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -948,6 +1004,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qz7-Ky-V67">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
                                         <state key="normal" title="Upload data"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="updloadDataTapped:" destination="q5D-RS-3jM" eventType="touchUpInside" id="rvq-NB-iZg"/>
                                         </connections>
@@ -955,6 +1016,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXu-u4-svW">
                                         <rect key="frame" x="0.0" y="44" width="374" height="32"/>
                                         <state key="normal" title="Download data"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="downloadDataTapped:" destination="q5D-RS-3jM" eventType="touchUpInside" id="5VE-cN-k55"/>
                                         </connections>
@@ -962,6 +1028,11 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9f-kG-hNp">
                                         <rect key="frame" x="0.0" y="88" width="374" height="32"/>
                                         <state key="normal" title="Categories configuration"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -984,6 +1055,13 @@
                         <viewLayoutGuide key="safeArea" id="RFh-N3-aQY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Moj-97-vvr"/>
+                    <connections>
+                        <outlet property="buttonForCategories" destination="s9f-kG-hNp" id="DuY-A8-6qb"/>
+                        <outlet property="buttonForDownloadContent" destination="fXu-u4-svW" id="g2I-SJ-kRE"/>
+                        <outlet property="buttonForUploadContent" destination="qz7-Ky-V67" id="POl-Mk-9vB"/>
+                        <outlet property="labelForLastDateOfUpdate" destination="tvH-Y0-aLf" id="h7D-qv-tqM"/>
+                        <outlet property="labelForVersion" destination="YDS-xr-gkp" id="Xgt-xm-YEs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKT-36-KUv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1191,6 +1269,7 @@
     </scenes>
     <resources>
         <image name="calendar" width="96" height="96"/>
+        <image name="expenses_v1" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fvD-My-Yxc"/>

@@ -16,7 +16,11 @@ class GlobalVariables {
     static let hexForFourthColor = "fce8aa"  //yellow
     static let budgetExpense = 200.0
     static var heightForTabBar: CGFloat = 0.0
-    static let urlToSave: String = "http://190.5.138.34:3434/expenses/api/Expenses/?device="
+    static let baseURL: String =  "http://190.5.138.34:3434/expenses/api/"
+    static let urlToSave: String = baseURL + "Expenses/?device="
+    static let sessionURL: String = baseURL + "/api/login"
+//    static let urlToSave: String = "http://190.5.138.34:3434/expenses/api/Expenses/?device="
+    
     static let formatStringForDate: String = "yyyyMMdd HH:mm:ss"
     
     static let monthsStringAndIntegers: [Int: String] = [1: "January", 2: "February", 3: "March", 4: "April", 5: "May",

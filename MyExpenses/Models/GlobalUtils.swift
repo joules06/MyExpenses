@@ -11,6 +11,14 @@ import Foundation
 import UIKit
 
 class GlobalUtils {
+    static func getKeyboardHeight(_ notification: Notification) -> CGFloat {
+        guard let userInfo = notification.userInfo else { return 0.0 }
+        
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return 0.0 }
+        
+        return keyboardSize.cgRectValue.height
+    }
+    
     static func getCurrentYear() -> Int {
         let date = Date()
         let calendar = Calendar.current
@@ -59,8 +67,8 @@ class GlobalUtils {
     static func addBottomBorderToTextField(textField: UITextField) {
         let border = CALayer()
         let widthForBorder = CGFloat(1.0)
-        border.borderColor = UIColor.lightGray.cgColor
-        print(textField.frame.size.height - widthForBorder)
+        border.borderColor = UIColor.black.cgColor
+        
         border.frame = CGRect(x: 0, y: textField.frame.size.height - widthForBorder, width: textField.frame.size.width, height: textField.frame.size.height)
         border.borderWidth = widthForBorder
         textField.layer.addSublayer(border)

@@ -101,6 +101,7 @@ class ConfigurationViewController: UIViewController {
                 
                 //convert to dictionary
                 if let dictFromJSON = decoded as? [String:Any] {
+                    
                     Alamofire.request(GlobalVariables.urlToSave + (MyRealmUtils.getUserSession(with: realm) ?? ""), method: .post, parameters: dictFromJSON, encoding: JSONEncoding.default).responseJSON {
                         (response) in
                         var message: String = ""
@@ -169,9 +170,9 @@ class ConfigurationViewController: UIViewController {
             }
             
             if resultCode == "200" {
-                messageForPoup = "Sincronización finalizada con éxito"
+                messageForPoup = "Sync success"
             }else {
-                messageForPoup = "Hubo un error al sincronizar los datos"
+                messageForPoup = "Error at download data"
             }
             
             SVProgressHUD.dismiss()
@@ -208,7 +209,7 @@ class ConfigurationViewController: UIViewController {
     //MARK: - Popups
     
     func showPopUp(message: String) {
-        let popup = PopupDialog(title: "Comprobar datos", message: message)
+        let popup = PopupDialog(title: "Checking data", message: message)
         var buttons = [PopupDialogButton]()
         
         
@@ -228,7 +229,7 @@ class ConfigurationViewController: UIViewController {
     
     func showPopUpForSync(message: String, typeOfAction: DownloadUploadData) {
         
-        let popup = PopupDialog(title: "Sincronizar datos", message: message)
+        let popup = PopupDialog(title: "Data Sync", message: message)
         var buttons = [PopupDialogButton]()
         
         
@@ -242,7 +243,7 @@ class ConfigurationViewController: UIViewController {
             
         }
         
-        let cancelButton = CancelButton(title: "Cancelar") {
+        let cancelButton = CancelButton(title: "Cancel") {
             print("cancel")
         }
         
