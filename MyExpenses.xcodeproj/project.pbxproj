@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		7C683A458A4F6F118212F98A /* Pods_MyExpenses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7B98AC7764352783F3FC54E /* Pods_MyExpenses.framework */; };
+		7D1F35772325C0D700AE0DFC /* TimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35762325C0D700AE0DFC /* TimeCollectionViewCell.swift */; };
+		7D1F35792325C2A600AE0DFC /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35782325C2A600AE0DFC /* ChartsViewController.swift */; };
+		7D1F357C2325C2D800AE0DFC /* ProtocolsForCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F357B2325C2D800AE0DFC /* ProtocolsForCharts.swift */; };
+		7D1F357E2325C6C900AE0DFC /* MonthsWithData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F357D2325C6C900AE0DFC /* MonthsWithData.swift */; };
+		7D1F35802325D4AE00AE0DFC /* ChartsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F357F2325D4AE00AE0DFC /* ChartsUtils.swift */; };
+		7D1F35822325D50F00AE0DFC /* Piechart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35812325D50F00AE0DFC /* Piechart.swift */; };
+		7D1F35842325F1DB00AE0DFC /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35832325F1DB00AE0DFC /* UserSession.swift */; };
+		7D1F35862325F48B00AE0DFC /* LastUpdateControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35852325F48B00AE0DFC /* LastUpdateControl.swift */; };
+		7D1F35882325F61900AE0DFC /* VersionCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35872325F61900AE0DFC /* VersionCode.swift */; };
+		7D1F358B2325F64F00AE0DFC /* CompareVersionCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F358A2325F64F00AE0DFC /* CompareVersionCodeRequest.swift */; };
+		7D1F358D2325F69700AE0DFC /* CompareVersionCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F358C2325F69700AE0DFC /* CompareVersionCodeResponse.swift */; };
+		7D1F358F2325F71700AE0DFC /* YearsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F358E2325F71700AE0DFC /* YearsCodable.swift */; };
+		7D1F35912325F72B00AE0DFC /* MonthCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35902325F72B00AE0DFC /* MonthCodable.swift */; };
+		7D1F35932325F74F00AE0DFC /* SaveDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35922325F74F00AE0DFC /* SaveDataRequest.swift */; };
+		7D1F35952325F78300AE0DFC /* UpdateVersionCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35942325F78300AE0DFC /* UpdateVersionCodeResponse.swift */; };
+		7D1F35972325F83600AE0DFC /* GetDataForUpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1F35962325F83600AE0DFC /* GetDataForUpdateRequest.swift */; };
 		7D25775223200EB50089422B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D25775123200EB50089422B /* AppDelegate.swift */; };
 		7D25775423200EB50089422B /* YearsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D25775323200EB50089422B /* YearsViewController.swift */; };
 		7D25775723200EB50089422B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D25775523200EB50089422B /* Main.storyboard */; };
@@ -42,6 +58,22 @@
 /* Begin PBXFileReference section */
 		750FD47B7B094B4121F940E0 /* Pods-MyExpenses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExpenses.release.xcconfig"; path = "Target Support Files/Pods-MyExpenses/Pods-MyExpenses.release.xcconfig"; sourceTree = "<group>"; };
 		791E5CE0C2B716066084CB19 /* Pods-MyExpenses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyExpenses.debug.xcconfig"; path = "Target Support Files/Pods-MyExpenses/Pods-MyExpenses.debug.xcconfig"; sourceTree = "<group>"; };
+		7D1F35762325C0D700AE0DFC /* TimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		7D1F35782325C2A600AE0DFC /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		7D1F357B2325C2D800AE0DFC /* ProtocolsForCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolsForCharts.swift; sourceTree = "<group>"; };
+		7D1F357D2325C6C900AE0DFC /* MonthsWithData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsWithData.swift; sourceTree = "<group>"; };
+		7D1F357F2325D4AE00AE0DFC /* ChartsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsUtils.swift; sourceTree = "<group>"; };
+		7D1F35812325D50F00AE0DFC /* Piechart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piechart.swift; sourceTree = "<group>"; };
+		7D1F35832325F1DB00AE0DFC /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		7D1F35852325F48B00AE0DFC /* LastUpdateControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdateControl.swift; sourceTree = "<group>"; };
+		7D1F35872325F61900AE0DFC /* VersionCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCode.swift; sourceTree = "<group>"; };
+		7D1F358A2325F64F00AE0DFC /* CompareVersionCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareVersionCodeRequest.swift; sourceTree = "<group>"; };
+		7D1F358C2325F69700AE0DFC /* CompareVersionCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareVersionCodeResponse.swift; sourceTree = "<group>"; };
+		7D1F358E2325F71700AE0DFC /* YearsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsCodable.swift; sourceTree = "<group>"; };
+		7D1F35902325F72B00AE0DFC /* MonthCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthCodable.swift; sourceTree = "<group>"; };
+		7D1F35922325F74F00AE0DFC /* SaveDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataRequest.swift; sourceTree = "<group>"; };
+		7D1F35942325F78300AE0DFC /* UpdateVersionCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVersionCodeResponse.swift; sourceTree = "<group>"; };
+		7D1F35962325F83600AE0DFC /* GetDataForUpdateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataForUpdateRequest.swift; sourceTree = "<group>"; };
 		7D25774E23200EB50089422B /* MyExpenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyExpenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D25775123200EB50089422B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D25775323200EB50089422B /* YearsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +120,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D1F357A2325C2D000AE0DFC /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				7D1F357B2325C2D800AE0DFC /* ProtocolsForCharts.swift */,
+				7D1F357F2325D4AE00AE0DFC /* ChartsUtils.swift */,
+				7D1F35812325D50F00AE0DFC /* Piechart.swift */,
+			);
+			path = Charts;
+			sourceTree = "<group>";
+		};
+		7D1F35892325F63D00AE0DFC /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7D1F358A2325F64F00AE0DFC /* CompareVersionCodeRequest.swift */,
+				7D1F358C2325F69700AE0DFC /* CompareVersionCodeResponse.swift */,
+				7D1F358E2325F71700AE0DFC /* YearsCodable.swift */,
+				7D1F35902325F72B00AE0DFC /* MonthCodable.swift */,
+				7D1F35922325F74F00AE0DFC /* SaveDataRequest.swift */,
+				7D1F35942325F78300AE0DFC /* UpdateVersionCodeResponse.swift */,
+				7D1F35962325F83600AE0DFC /* GetDataForUpdateRequest.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		7D25774523200EB50089422B = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +198,7 @@
 				7D4496C12322A4B100487004 /* AddNewYearViewController.swift */,
 				7DD728C423236AC200EE815D /* AddNewMonthViewController.swift */,
 				7D3E5C6C232423F1003A54EA /* PopUpCalendarViewController.swift */,
+				7D1F35782325C2A600AE0DFC /* ChartsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -149,12 +206,15 @@
 		7D25776523200F400089422B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7D1F35892325F63D00AE0DFC /* API */,
+				7D1F357A2325C2D000AE0DFC /* Charts */,
 				7D4496B42322A2C100487004 /* Realm */,
 				7DCE752423215E360078DB08 /* GlobalVariables.swift */,
 				7DCE7528232163CC0078DB08 /* MonthForDisplay.swift */,
 				7DCE752A232164AC0078DB08 /* GlobalUtils.swift */,
 				7D4496C32322B58500487004 /* MyCustomToolBarForPicker.swift */,
 				7DD728C22323676600EE815D /* YearAndMonth.swift */,
+				7D1F357D2325C6C900AE0DFC /* MonthsWithData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +227,9 @@
 				7D4496BD2322A36500487004 /* Years.swift */,
 				7D4496BF2322A37800487004 /* Months.swift */,
 				7D4496C52322B95800487004 /* MyRealmUtils.swift */,
+				7D1F35832325F1DB00AE0DFC /* UserSession.swift */,
+				7D1F35852325F48B00AE0DFC /* LastUpdateControl.swift */,
+				7D1F35872325F61900AE0DFC /* VersionCode.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -179,6 +242,7 @@
 				7DCE7526232160B50078DB08 /* MonthGroupTableViewCell.swift */,
 				7D4FC06D2322108D0075029D /* CellForDataMonthTableViewCell.swift */,
 				7D2784F723245AFE00516616 /* CustomCellForCalendar.swift */,
+				7D1F35762325C0D700AE0DFC /* TimeCollectionViewCell.swift */,
 			);
 			path = CellsForTables;
 			sourceTree = "<group>";
@@ -323,20 +387,36 @@
 				7D6D5C6B2320C9E600DC5953 /* SwipeTableViewController.swift in Sources */,
 				7DD728C32323676600EE815D /* YearAndMonth.swift in Sources */,
 				7D25775423200EB50089422B /* YearsViewController.swift in Sources */,
+				7D1F357E2325C6C900AE0DFC /* MonthsWithData.swift in Sources */,
+				7D1F35932325F74F00AE0DFC /* SaveDataRequest.swift in Sources */,
+				7D1F358D2325F69700AE0DFC /* CompareVersionCodeResponse.swift in Sources */,
 				7D4FC07023221BDA0075029D /* ConfigurationViewController.swift in Sources */,
 				7D4496BC2322A33700487004 /* Configuration.swift in Sources */,
+				7D1F357C2325C2D800AE0DFC /* ProtocolsForCharts.swift in Sources */,
 				7D4496BA2322A31400487004 /* CategoryForExpense.swift in Sources */,
 				7D4496BE2322A36500487004 /* Years.swift in Sources */,
 				7DD728C523236AC200EE815D /* AddNewMonthViewController.swift in Sources */,
+				7D1F35802325D4AE00AE0DFC /* ChartsUtils.swift in Sources */,
+				7D1F358B2325F64F00AE0DFC /* CompareVersionCodeRequest.swift in Sources */,
+				7D1F35882325F61900AE0DFC /* VersionCode.swift in Sources */,
+				7D1F35842325F1DB00AE0DFC /* UserSession.swift in Sources */,
 				7DCE7529232163CC0078DB08 /* MonthForDisplay.swift in Sources */,
+				7D1F35952325F78300AE0DFC /* UpdateVersionCodeResponse.swift in Sources */,
+				7D1F358F2325F71700AE0DFC /* YearsCodable.swift in Sources */,
 				7DCE7527232160B50078DB08 /* MonthGroupTableViewCell.swift in Sources */,
 				7D76EC5B232151E1006A9EF5 /* MonthGroupTableViewController.swift in Sources */,
 				7D4496B82322A2DC00487004 /* RegisterViewController.swift in Sources */,
+				7D1F35862325F48B00AE0DFC /* LastUpdateControl.swift in Sources */,
+				7D1F35822325D50F00AE0DFC /* Piechart.swift in Sources */,
 				7D25775223200EB50089422B /* AppDelegate.swift in Sources */,
 				7DCE752B232164AC0078DB08 /* GlobalUtils.swift in Sources */,
 				7D2784F823245AFE00516616 /* CustomCellForCalendar.swift in Sources */,
+				7D1F35972325F83600AE0DFC /* GetDataForUpdateRequest.swift in Sources */,
+				7D1F35772325C0D700AE0DFC /* TimeCollectionViewCell.swift in Sources */,
 				7D4496B62322A2D000487004 /* LoginViewController.swift in Sources */,
+				7D1F35792325C2A600AE0DFC /* ChartsViewController.swift in Sources */,
 				7D3E5C6D232423F1003A54EA /* PopUpCalendarViewController.swift in Sources */,
+				7D1F35912325F72B00AE0DFC /* MonthCodable.swift in Sources */,
 				7D4496C02322A37800487004 /* Months.swift in Sources */,
 				7D6D5C692320C5F700DC5953 /* CustomYearTableViewCell.swift in Sources */,
 				7D4496C42322B58500487004 /* MyCustomToolBarForPicker.swift in Sources */,

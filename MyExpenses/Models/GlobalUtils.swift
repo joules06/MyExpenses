@@ -5,6 +5,7 @@
 //  Created by Julio Rico on 9/5/19.
 //  Copyright © 2019 Julio Rico. All rights reserved.
 //
+import ChameleonFramework
 import RealmSwift
 import Foundation
 import UIKit
@@ -112,5 +113,200 @@ class GlobalUtils {
         }
     }
     
+    static func updateNavBar(withHexCode colourHexString: String, navigationController: UINavigationController?) {
+        guard let navBar = navigationController?.navigationBar else {
+            return
+        }
+        
+        let navBarColour = UIColor(hexString: colourHexString)
+        
+        navBar.barTintColor = navBarColour
+        navBar.tintColor = ContrastColorOf(backgroundColor: navBarColour, returnFlat: true)
+        
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.flatWhite()!]
+        
+    }
     
+    static func createDaysForXAxisInCharts(month: String, year: String) -> [Int: String] {
+        var daysDictionary = [Int: String]()
+        
+        if let monthInt = Int(month),
+            let yearMonth = Int(year) {
+            let numberOfDays = getNumberOfDays(month: monthInt, year: yearMonth)
+            
+            for i in stride(from: 1, through: numberOfDays, by: 1) {
+                daysDictionary[i] = String(i)
+                
+            }
+        }
+        
+        return daysDictionary
+    }
+    
+    fileprivate static func getNumberOfDays(month:Int, year: Int) -> Int {
+        var numberOfDays = -1
+        let dateComponentes = DateComponents(year: year, month: month)
+        
+        let calendar = Calendar.current
+        if let date = calendar.date(from: dateComponentes),
+            let range = calendar.range(of: .day, in: .month, for: date) {
+            numberOfDays = range.count
+        }
+        
+        return numberOfDays
+    }
+    
+    static func getBundleVersion() -> String? {
+        guard let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
+            return nil
+        }
+        
+        return appVersion
+    }
+    
+    static func compareVersionCode(realm: Realm, dataFromRequest: Data?) -> (String, Int) {
+        //make request
+        //serialize response
+        //compare current time to ticks
+        var responseObject: CompareVersionCodeResponse?
+        var message: String = ""
+        var difference: Int = 0
+        
+        if let data = dataFromRequest {
+            do {
+                responseObject = CompareVersionCodeResponse(differenceBetweenVersionCode: 0, responseCode: "200", responseStatus: "OK")
+                responseObject = try JSONDecoder().decode(CompareVersionCodeResponse.self, from: data)
+                
+                if let object = responseObject {
+                    
+                    switch object.differenceBetweenVersionCode {
+                    case 0:
+                        message = "Datos sincronizados"
+                    case _ where object.differenceBetweenVersionCode < 0:
+                        message = "Los datos del servidor no están actualizados"
+                    default:
+                        message = "Nueva versión de datos"
+                    }
+                    
+                    difference = object.differenceBetweenVersionCode
+                }
+                
+            }catch {
+                print("error unserialize \(error)")
+            }
+            
+        }
+        
+        return (message, difference)
+    }
+    
+    static func convertFromRealmToJson(realm: Realm) -> [String:Any]? {
+        var yearsJson = [YearsCodable]()
+        var categoriesString = ""
+        var yearsString = ""
+        var dictFromJSON: [String:Any] = [String:Any]()
+        
+        let categories = realm.objects(CategoryForExpense.self)
+        let array = Array(categories)
+        let encodedCategoriesObject = try? JSONEncoder().encode(array)
+        if let encodedObjectJsonCategoriesString = String(data: encodedCategoriesObject!, encoding: .utf8)
+        {
+            categoriesString = encodedObjectJsonCategoriesString
+        }
+        
+        let years = realm.objects(Years.self)
+        
+        for yearRealm in years {
+            var monthCodableArray = [Monthscodable]()
+            
+            
+            for monthRealm in yearRealm.months {
+                let monthCodable = Monthscodable(primaryKey: "", day: 0, month: 0, monthForDisplay: "", amountSpent: 0.0, creditCardType: "", commets: "", categoryOfExpense: 0)
+                
+                monthCodable.primaryKey = monthRealm.primaryKey
+                monthCodable.day = monthRealm.day
+                monthCodable.month = monthRealm.month
+                monthCodable.monthForDisplay = monthRealm.monthForDisplay
+                monthCodable.amountSpent = monthRealm.amountSpent
+                monthCodable.creditCardType = monthRealm.creditCardType
+                monthCodable.commets = monthRealm.commets
+                
+                if let category = monthRealm.categoryOfExpense {
+                    monthCodable.categoryOfExpense = category.primaryKey
+                }
+                
+                monthCodableArray.append(monthCodable)
+            }
+            
+            let yearCodable = YearsCodable(year: yearRealm.year, maximumAmountToSpend: yearRealm.maximumAmountToSpend, monthscodable: monthCodableArray)
+            
+            yearsJson.append(yearCodable)
+        }
+        
+        let encodedYears = try? JSONEncoder().encode(yearsJson)
+        if let encodedYearsObjectJsonString = String(data: encodedYears!, encoding: .utf8) {
+            yearsString = encodedYearsObjectJsonString
+        }
+        
+        let savedModel = SaveDataRequest(categories: categoriesString, years: yearsString, months: "Months")
+        
+        //convert object to Data
+        let encodedObject = try? JSONEncoder().encode(savedModel)
+        if let safeDecodedObject = encodedObject {
+            do {
+                let decoded = try JSONSerialization.jsonObject(with: safeDecodedObject, options: [])
+                
+                //convert to dictionary
+                if let safeDictionary = decoded as? [String:Any] {
+                    dictFromJSON = [String:Any]()
+                    dictFromJSON = safeDictionary
+                }
+            } catch {
+                fatalError("Error serializing categories and years")
+            }
+            
+        }
+        
+        return dictFromJSON
+    }
+    
+    static func convertFromJsonToReam(realm: Realm, data: Data?) {
+        var responseObject: GetDataForUpdateRequest?
+        var categoriesFromJson: [CategoryForExpense]?
+        
+        if let safeData = data {
+            do {
+                responseObject = GetDataForUpdateRequest(categories: "", years: "", months: "", versionControl: "", responseCode: "", responseStatus: "")
+                responseObject = try JSONDecoder().decode(GetDataForUpdateRequest.self, from: safeData)
+                
+                
+                if let object = responseObject {
+                    if object.responseCode == "200" && object.responseStatus == "OK" {
+                        if let dataForYears = object.years.data(using: .utf8),
+                            let dataForCategories = object.categories.data(using: .utf8) {
+                            let yearsCodable = try JSONDecoder().decode([YearsCodable].self, from: dataForYears)
+                            
+                            categoriesFromJson = [CategoryForExpense]()
+                            categoriesFromJson = try JSONDecoder().decode([CategoryForExpense].self, from: dataForCategories)
+                            
+                            if let safeCategories = categoriesFromJson {
+                                MyRealmUtils.updateCategories(newCategories: safeCategories, realm: realm)
+                            }
+                            
+                            MyRealmUtils.updateYearsAndMonths(newYearsAndMonths: yearsCodable, realm: realm)
+                            
+                            if let versionControl = Int(object.versionControl) {
+                                let realmUtils = MyRealmUtils()
+                                realmUtils.updateVersionCodeToRealm(newVersionCode: versionControl, realm: realm)
+                            }
+                        }
+                    }
+                }
+                
+            } catch {
+                print("error unserialize \(error)")
+            }
+            
+        }
+    }
 }
