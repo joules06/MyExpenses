@@ -102,7 +102,7 @@ class MonthGroupTableViewController: UITableViewController {
         let item = FloatyItem()
         item.hasShadow = false
         item.titleLabelPosition = .right
-        item.title = "Nuevo gasto"
+        item.title = "New Expense"
         item.icon = UIImage(named: "dollar")
         item.handler = { item in
             self.performSegue(withIdentifier: self.segueIdForNextAddScene, sender: self)

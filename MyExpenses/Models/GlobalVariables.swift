@@ -18,7 +18,8 @@ class GlobalVariables {
     static var heightForTabBar: CGFloat = 0.0
     static let baseURL: String =  "http://190.5.138.34:3434/expenses/api/"
     static let urlToSave: String = baseURL + "Expenses/?device="
-    static let sessionURL: String = baseURL + "/api/login"
+    static let sessionURL: String = baseURL + "login"
+    static let newUserURL: String = baseURL + "new-user"
 //    static let urlToSave: String = "http://190.5.138.34:3434/expenses/api/Expenses/?device="
     
     static let formatStringForDate: String = "yyyyMMdd HH:mm:ss"

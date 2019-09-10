@@ -50,7 +50,7 @@ class ConfigurationViewController: UIViewController {
     
     @IBAction func downloadDataTapped(_ sender: UIButton) {
         if resultOfCompare < 0 {
-            showPopUpForSync(message: "Data from server is not updated. Do you want to continue?", typeOfAction: .DonwloadData)
+            showPopUpForSync(message: "All changes not updated, will be lost. Do you want to continue?", typeOfAction: .DonwloadData)
         } else {
             donwloadDataFromServer()
         }
@@ -84,7 +84,7 @@ class ConfigurationViewController: UIViewController {
     //MARK: - Functions for Alamofire
     func checkCurrentVersion() {
         SVProgressHUD.show()
-        
+        let userToken = MyRealmUtils.getUserSession(with: realm) ?? ""
         var versionCode: Int = 0
         
         if let safeVersionCode = MyRealmUtils.getVersionCodeFromRealm(realm: realm) {
@@ -102,7 +102,7 @@ class ConfigurationViewController: UIViewController {
                 //convert to dictionary
                 if let dictFromJSON = decoded as? [String:Any] {
                     
-                    Alamofire.request(GlobalVariables.urlToSave + (MyRealmUtils.getUserSession(with: realm) ?? ""), method: .post, parameters: dictFromJSON, encoding: JSONEncoding.default).responseJSON {
+                    Alamofire.request(GlobalVariables.urlToSave + userToken, method: .post, parameters: dictFromJSON, encoding: JSONEncoding.default).responseJSON {
                         (response) in
                         var message: String = ""
                         var difference = 0
@@ -119,13 +119,13 @@ class ConfigurationViewController: UIViewController {
                         if !message.isEmpty {
                             self.showPopUp(message: message)
                         }
-                        if difference == 0 {
-                            self.buttonForUploadContent.isEnabled = false
-                            self.buttonForDownloadContent.isEnabled = false
-                        } else {
-                            self.buttonForUploadContent.isEnabled = true
-                            self.buttonForDownloadContent.isEnabled = true
-                        }
+//                        if difference == 0 {
+//                            self.buttonForUploadContent.isEnabled = false
+//                            self.buttonForDownloadContent.isEnabled = false
+//                        } else {
+//                            self.buttonForUploadContent.isEnabled = true
+//                            self.buttonForDownloadContent.isEnabled = true
+//                        }
                         
                     }
                 }
@@ -136,14 +136,17 @@ class ConfigurationViewController: UIViewController {
     }
     
     func uploadDataToServer() {
+        SVProgressHUD.show()
+        
         var resultCode: String = ""
         var messageForPoup: String = ""
+        let userToken = (MyRealmUtils.getUserSession(with: realm) ?? "")
         
         guard let dictonary = GlobalUtils.convertFromRealmToJson(realm: realm) else {
             return
         }
         
-        Alamofire.request(GlobalVariables.urlToSave + (MyRealmUtils.getUserSession(with: realm) ?? ""), method: .put, parameters: dictonary, encoding: JSONEncoding.default).responseJSON { (response) in
+        Alamofire.request(GlobalVariables.urlToSave + userToken, method: .put, parameters: dictonary, encoding: JSONEncoding.default).responseJSON { (response) in
             switch response.result {
             case .success:
                 if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
@@ -155,8 +158,11 @@ class ConfigurationViewController: UIViewController {
                         resultCode = responseObject.responseCode
                         
                         if responseObject.responseCode == "200" {
-                            let realmUtils = MyRealmUtils()
-                            realmUtils.updateVersionCodeToRealm(newVersionCode: responseObject.versionCode, realm: self.realm)
+                            DispatchQueue.main.async {
+                                let realmUtils = MyRealmUtils()
+                                realmUtils.updateVersionCodeToRealm(newVersionCode: responseObject.versionCode, realm: self.realm)
+                            }
+                            
                         }
                     }catch {
                         print("error unserializing")
@@ -178,7 +184,10 @@ class ConfigurationViewController: UIViewController {
             SVProgressHUD.dismiss()
             
             self.showPopUp(message: messageForPoup)
-            self.getDataForLabels()
+            DispatchQueue.main.async {
+                self.getDataForLabels()
+            }
+            
             
             
         }
@@ -189,21 +198,29 @@ class ConfigurationViewController: UIViewController {
     func donwloadDataFromServer() {
         
         SVProgressHUD.show()
+        let userToken = (MyRealmUtils.getUserSession(with: realm) ?? "")
         
-        Alamofire.request(GlobalVariables.urlToSave + (MyRealmUtils.getUserSession(with: realm) ?? ""), method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request(GlobalVariables.urlToSave + userToken, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON {
             (response) in
             
             switch response.result {
             case .success:
                 //TODO: update version code from server
-                GlobalUtils.convertFromJsonToReam(realm: self.realm, data: response.data)
+                DispatchQueue.main.async {
+                    GlobalUtils.convertFromJsonToReam(realm: self.realm, data: response.data)
+                }
+                
             case .failure:
                 print("error")
             }
             
             SVProgressHUD.dismiss()
         }
-        getDataForLabels()
+        showPopUp(message: "Data saved on app")
+        DispatchQueue.main.async {
+            self.getDataForLabels()
+        }
+        
     }
     
     //MARK: - Popups

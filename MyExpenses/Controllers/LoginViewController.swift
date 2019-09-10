@@ -172,27 +172,40 @@ class LoginViewController: UIViewController {
                 switch response.result {
                 case .success:
                     print("success")
-                    var responseObject = SessionResponse(token: "", responseCode: "", responseStatus: "")
+                    var responseObject = SessionResponse(token: nil, responseCode: "", responseStatus: "")
                     do {
                         if let data = response.data {
                             responseObject = try JSONDecoder().decode(SessionResponse.self, from: data)
-                            
-                            DispatchQueue.main.async {
-                                MyRealmUtils.saveSessionForUser(with: self.realm, session: responseObject.token)
+                            if responseObject.responseCode == "200" {
+                                if let token = responseObject.token {
+                                    DispatchQueue.main.async {
+                                        MyRealmUtils.saveSessionForUser(with: self.realm, session: token)
+                                        self.performSegue(withIdentifier: self.segueId, sender: self)
+                                    }
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    self.showPopForAction(message: "Invalid user/password. Please try again.")
+                                }
                             }
                         }
                         
                     } catch {
-                        fatalError("error decoding response from token reqeust")
+                        DispatchQueue.main.async {
+                            self.showPopForAction(message: "Service unavialable (1).")
+                        }
+                        
                     }
                 case .failure:
                     print("error \(response.description) \(response)")
+                    DispatchQueue.main.async {
+                        self.showPopForAction(message: "Service unavialable (2).")
+                    }
                 }
                 
             }
 
         }
-         self.performSegue(withIdentifier: self.segueId, sender: self)
         
     }
 }

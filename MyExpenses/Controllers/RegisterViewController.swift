@@ -55,6 +55,7 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func buttonRegisterTapped(_ sender: UIButton) {
+        registerUser()
     }
     
     @IBAction func buttonCancelTapped(_ sender: Any) {
@@ -155,6 +156,66 @@ class RegisterViewController: UIViewController {
         
         
         self.present(popup, animated: true, completion: nil)
+    }
+    
+    func registerUser() {
+        guard let email = textFieldForEmail.text else {
+            return
+        }
+        
+        guard let password = textFieldForPassword.text else {
+            return
+        }
+        SVProgressHUD.show()
+        
+        let login = SessionRequest(email: email, password: password)
+        let encodedObjectRequest = try? JSONEncoder().encode(login)
+        if let safeDecodedObject = encodedObjectRequest,
+            //serialize
+            let decoded = try? JSONSerialization.jsonObject(with: safeDecodedObject, options: []),
+            let dictFromJSON = decoded as? [String:Any] {
+            
+            Alamofire.request(GlobalVariables.newUserURL, method: .put, parameters: dictFromJSON, encoding: JSONEncoding.default).responseJSON { (response) in
+                SVProgressHUD.dismiss()
+                
+                switch response.result {
+                case .success:
+                    print("success")
+                    var responseObject = SessionResponse(token: nil, responseCode: "", responseStatus: "")
+                    do {
+                        if let data = response.data {
+                            responseObject = try JSONDecoder().decode(SessionResponse.self, from: data)
+                            if responseObject.responseCode == "200" {
+                                if let token = responseObject.token {
+                                    DispatchQueue.main.async {
+                                        MyRealmUtils.saveSessionForUser(with: self.realm, session: token)
+                                        self.performSegue(withIdentifier: self.segueId, sender: self)
+                                    }
+                                }
+                            } else {
+                                DispatchQueue.main.async {
+                                    self.showPopForAction(message: "Email already exists. Try with other email.")
+                                }
+                            }
+                        }
+                        
+                    } catch {
+                        DispatchQueue.main.async {
+                            self.showPopForAction(message: "Service unavialable (1).")
+                        }
+                        
+                    }
+                case .failure:
+                    print("error \(response.description) \(response)")
+                    DispatchQueue.main.async {
+                        self.showPopForAction(message: "Service unavialable (2).")
+                    }
+                }
+                
+            }
+            
+        }
+        
     }
 
 }

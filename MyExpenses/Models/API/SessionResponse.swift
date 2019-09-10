@@ -8,12 +8,20 @@
 
 import Foundation
 
-struct SessionResponse: Codable {
-    let token, responseCode, responseStatus: String
+class SessionResponse: Codable {
+    let token: String?
+    let responseCode, responseStatus: String
     
     enum CodingKeys: String, CodingKey {
         case token
         case responseCode = "response_code"
         case responseStatus = "response_status"
     }
+    
+    init(token: String?, responseCode: String, responseStatus: String) {
+        self.token = token
+        self.responseCode = responseCode
+        self.responseStatus = responseStatus
+    }
 }
+

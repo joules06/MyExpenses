@@ -187,14 +187,15 @@ class GlobalUtils {
                 
                 if let object = responseObject {
                     
-                    switch object.differenceBetweenVersionCode {
-                    case 0:
-                        message = "Datos sincronizados"
-                    case _ where object.differenceBetweenVersionCode < 0:
-                        message = "Los datos del servidor no están actualizados"
-                    default:
-                        message = "Nueva versión de datos"
-                    }
+//                    switch object.differenceBetweenVersionCode {
+//                    case 0:
+//                        message = "Data checked"
+//                    case _ where object.differenceBetweenVersionCode < 0:
+//                        message = "Data from server is not updated"
+//                    default:
+//                        message = "New data version"
+//                    }
+                    message = "Data checked"
                     
                     difference = object.differenceBetweenVersionCode
                 }
