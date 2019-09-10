@@ -7,6 +7,7 @@
 //
 import Alamofire
 import PopupDialog
+import RealmSwift
 import UIKit
 import SVProgressHUD
 
@@ -19,6 +20,9 @@ class LoginViewController: UIViewController {
     
     var formIsValidWithTextFields: Bool = false
     var activeField: UITextField?
+
+    let segueId = "goToHome"
+    let realm = try! Realm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +50,11 @@ class LoginViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    
+    @IBAction func buttonLoginTapped(_ sender: UIButton) {
+        getTokenFromLogin()
     }
     
     
@@ -152,36 +161,38 @@ class LoginViewController: UIViewController {
         
         let login = SessionRequest(email: email, password: password)
         let encodedObjectRequest = try? JSONEncoder().encode(login)
-        do {
-            if let safeDecodedObject = encodedObjectRequest {
-                //serialize
-                let decoded = try JSONSerialization.jsonObject(with: safeDecodedObject, options: [])
+        if let safeDecodedObject = encodedObjectRequest,
+            //serialize
+            let decoded = try? JSONSerialization.jsonObject(with: safeDecodedObject, options: []),
+            let dictFromJSON = decoded as? [String:Any] {
+            
+            Alamofire.request(GlobalVariables.sessionURL, method: .post, parameters: dictFromJSON, encoding: JSONEncoding.default).responseJSON { (response) in
+                SVProgressHUD.dismiss()
                 
-                //convert to dictionary
-                if let dictFromJSON = decoded as? [String:Any] {
+                switch response.result {
+                case .success:
+                    print("success")
+                    var responseObject = SessionResponse(token: "", responseCode: "", responseStatus: "")
                     do {
-                        Alamofire.request(GlobalVariables.sessionURL, method: .post, parameters: dictFromJSON, encoding: JSONEncoding.default).responseJSON { (response) in
-                            switch response.result {
-                            case .success:
-                                var responseObject = SessionResponse(token: "", responseCode: "", responseStatus: "")
-                                responseObject = try JSONDecoder().decode(SessionResponse.self, from: data)
-                                
-                            case .failure:
-                                print("error")
+                        if let data = response.data {
+                            responseObject = try JSONDecoder().decode(SessionResponse.self, from: data)
+                            
+                            DispatchQueue.main.async {
+                                MyRealmUtils.saveSessionForUser(with: self.realm, session: responseObject.token)
                             }
-                            SVProgressHUD.dismiss()
                         }
+                        
                     } catch {
-                        print("error compareTicksFromService \(error)")
+                        fatalError("error decoding response from token reqeust")
                     }
-                    
-                    
+                case .failure:
+                    print("error \(response.description) \(response)")
                 }
+                
             }
-        } catch {
-            print("error compareTicksFromService \(error)")
+
         }
-        
+         self.performSegue(withIdentifier: self.segueId, sender: self)
         
     }
 }

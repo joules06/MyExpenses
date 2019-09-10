@@ -101,6 +101,7 @@ class MyRealmUtils {
         do {
             try realm.write {
                 realm.create(UserSession.self, value: userSession, update: .modified)
+                print("save new token: \(session)")
             }
         } catch {
             fatalError("Could not save session data")
