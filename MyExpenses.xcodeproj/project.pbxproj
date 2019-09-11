@@ -46,6 +46,7 @@
 		7D4FC07023221BDA0075029D /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FC06F23221BDA0075029D /* ConfigurationViewController.swift */; };
 		7D54A7332326AB94009CF92D /* SessionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D54A7322326AB94009CF92D /* SessionRequest.swift */; };
 		7D54A7352326ABC6009CF92D /* SessionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D54A7342326ABC6009CF92D /* SessionResponse.swift */; };
+		7D5AE6152328A7D50083E060 /* Reame.md in Resources */ = {isa = PBXBuildFile; fileRef = 7D5AE6142328A7D50083E060 /* Reame.md */; };
 		7D6D5C692320C5F700DC5953 /* CustomYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5C682320C5F700DC5953 /* CustomYearTableViewCell.swift */; };
 		7D6D5C6B2320C9E600DC5953 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6D5C6A2320C9E600DC5953 /* SwipeTableViewController.swift */; };
 		7D76EC5B232151E1006A9EF5 /* MonthGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D76EC5A232151E1006A9EF5 /* MonthGroupTableViewController.swift */; };
@@ -101,6 +102,7 @@
 		7D4FC06F23221BDA0075029D /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
 		7D54A7322326AB94009CF92D /* SessionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRequest.swift; sourceTree = "<group>"; };
 		7D54A7342326ABC6009CF92D /* SessionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResponse.swift; sourceTree = "<group>"; };
+		7D5AE6142328A7D50083E060 /* Reame.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Reame.md; sourceTree = "<group>"; };
 		7D6D5C682320C5F700DC5953 /* CustomYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomYearTableViewCell.swift; sourceTree = "<group>"; };
 		7D6D5C6A2320C9E600DC5953 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		7D76EC5A232151E1006A9EF5 /* MonthGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthGroupTableViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		7D25774523200EB50089422B = {
 			isa = PBXGroup;
 			children = (
+				7D5AE6142328A7D50083E060 /* Reame.md */,
 				7D3ADFAA2324AECA0023498D /* todo.rtf */,
 				7D25775023200EB50089422B /* MyExpenses */,
 				7D25774F23200EB50089422B /* Products */,
@@ -337,6 +340,7 @@
 				7D25775C23200EB60089422B /* LaunchScreen.storyboard in Resources */,
 				7D25775923200EB60089422B /* Assets.xcassets in Resources */,
 				7D25775723200EB50089422B /* Main.storyboard in Resources */,
+				7D5AE6152328A7D50083E060 /* Reame.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
