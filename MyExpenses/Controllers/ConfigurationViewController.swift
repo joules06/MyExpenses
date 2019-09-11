@@ -47,6 +47,13 @@ class ConfigurationViewController: UIViewController {
         }
     }
     
+    @IBAction func logOutTapped(_ sender: UIButton) {
+        MyRealmUtils.deleteSession(with: realm)
+        let loginViewController = storyboard?.instantiateViewController(withIdentifier: "Login") as! LoginViewController
+        
+        
+        self.present(loginViewController, animated: true, completion: nil)
+    }
     
     @IBAction func downloadDataTapped(_ sender: UIButton) {
         if resultOfCompare < 0 {
@@ -55,6 +62,8 @@ class ConfigurationViewController: UIViewController {
             donwloadDataFromServer()
         }
     }
+    
+    
     
     //MARK: - Setup view and conrolls
     func updateAppTheme() {

@@ -26,6 +26,8 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         // Do any additional setup after loading the view.
         textFieldForEmail.delegate = self
@@ -41,6 +43,20 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         suscribeToKeyboardNotifications()
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if MyRealmUtils.existsSession(with: realm) {
+            //MainTabView
+            print("exists session")
+            //            let vc = storyboard?.instantiateViewController(withIdentifier: "MainTabView") as! TabBarViewController
+            //            self.present(vc, animated: true, completion: nil)
+            self.performSegue(withIdentifier: self.segueId, sender: self)
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,6 +72,8 @@ class LoginViewController: UIViewController {
     @IBAction func buttonLoginTapped(_ sender: UIButton) {
         getTokenFromLogin()
     }
+    
+    
     
     
     //MARK: - Functions for appearance

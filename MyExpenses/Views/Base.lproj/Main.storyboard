@@ -937,7 +937,7 @@
         <!--Login View Controller-->
         <scene sceneID="rCR-NV-Zgn">
             <objects>
-                <viewController id="R6b-bd-Tcg" customClass="LoginViewController" customModule="MyExpenses" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="R6b-bd-Tcg" customClass="LoginViewController" customModule="MyExpenses" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4aj-t7-gfV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1046,99 +1046,101 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="vGZ-YH-8qf">
-                                <rect key="frame" x="20" y="119" width="374" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wPF-IT-wKZ">
+                                <rect key="frame" x="16" y="247" width="382" height="402"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFt-6f-8La">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#version#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDS-xr-gkp">
-                                        <rect key="frame" x="0.0" y="48.5" width="374" height="21.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vGZ-YH-8qf">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="114"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses version" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFt-6f-8La">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="54.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#version#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDS-xr-gkp">
+                                                <rect key="frame" x="0.0" y="59.5" width="382" height="54.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nuQ-TO-9iV">
+                                        <rect key="frame" x="0.0" y="144" width="382" height="114"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0y-Hk-bUz">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="54.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#date#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvH-Y0-aLf">
+                                                <rect key="frame" x="0.0" y="59.5" width="382" height="54.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9nw-J0-nit">
+                                        <rect key="frame" x="0.0" y="288" width="382" height="114"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qz7-Ky-V67">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
+                                                <state key="normal" title="Upload data"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="updloadDataTapped:" destination="q5D-RS-3jM" eventType="touchUpInside" id="rvq-NB-iZg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXu-u4-svW">
+                                                <rect key="frame" x="0.0" y="42" width="382" height="30"/>
+                                                <state key="normal" title="Download data"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="downloadDataTapped:" destination="q5D-RS-3jM" eventType="touchUpInside" id="5VE-cN-k55"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9f-kG-hNp">
+                                                <rect key="frame" x="0.0" y="84" width="382" height="30"/>
+                                                <state key="normal" title="Logout"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="logOutTapped:" destination="q5D-RS-3jM" eventType="touchUpInside" id="eKf-hi-R1h"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="rAe-AT-s0I"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="nuQ-TO-9iV">
-                                <rect key="frame" x="20" y="307" width="374" height="70"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0y-Hk-bUz">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="15.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#date#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvH-Y0-aLf">
-                                        <rect key="frame" x="0.0" y="54.5" width="374" height="15.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="KIe-gt-4fo"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="9nw-J0-nit">
-                                <rect key="frame" x="20" y="495" width="374" height="120"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qz7-Ky-V67">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
-                                        <state key="normal" title="Upload data"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="updloadDataTapped:" destination="q5D-RS-3jM" eventType="touchUpInside" id="rvq-NB-iZg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXu-u4-svW">
-                                        <rect key="frame" x="0.0" y="44" width="374" height="32"/>
-                                        <state key="normal" title="Download data"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="downloadDataTapped:" destination="q5D-RS-3jM" eventType="touchUpInside" id="5VE-cN-k55"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9f-kG-hNp">
-                                        <rect key="frame" x="0.0" y="88" width="374" height="32"/>
-                                        <state key="normal" title="Categories configuration"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="Qqv-H1-CNR"/>
+                                    <constraint firstItem="9nw-J0-nit" firstAttribute="leading" secondItem="wPF-IT-wKZ" secondAttribute="leading" id="8QH-nC-1Sg"/>
+                                    <constraint firstItem="nuQ-TO-9iV" firstAttribute="leading" secondItem="wPF-IT-wKZ" secondAttribute="leading" id="LTh-HG-U6s"/>
+                                    <constraint firstItem="vGZ-YH-8qf" firstAttribute="leading" secondItem="wPF-IT-wKZ" secondAttribute="leading" id="Mkl-Ws-wCC"/>
+                                    <constraint firstAttribute="trailing" secondItem="vGZ-YH-8qf" secondAttribute="trailing" id="bfg-Ky-fdI"/>
+                                    <constraint firstAttribute="trailing" secondItem="nuQ-TO-9iV" secondAttribute="trailing" id="rR9-GX-2Qz"/>
+                                    <constraint firstAttribute="trailing" secondItem="9nw-J0-nit" secondAttribute="trailing" id="yxv-XL-vBc"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nuQ-TO-9iV" firstAttribute="leading" secondItem="RFh-N3-aQY" secondAttribute="leading" constant="20" id="06u-xv-yr3"/>
-                            <constraint firstItem="9nw-J0-nit" firstAttribute="leading" secondItem="RFh-N3-aQY" secondAttribute="leading" constant="20" id="2V9-Op-ZPX"/>
-                            <constraint firstItem="vGZ-YH-8qf" firstAttribute="top" secondItem="RFh-N3-aQY" secondAttribute="top" constant="75" id="GVE-Hu-614"/>
-                            <constraint firstItem="RFh-N3-aQY" firstAttribute="trailing" secondItem="vGZ-YH-8qf" secondAttribute="trailing" constant="20" id="NEZ-R0-HTP"/>
-                            <constraint firstItem="RFh-N3-aQY" firstAttribute="trailing" secondItem="nuQ-TO-9iV" secondAttribute="trailing" constant="20" id="RcA-FU-YIg"/>
-                            <constraint firstItem="RFh-N3-aQY" firstAttribute="trailing" secondItem="9nw-J0-nit" secondAttribute="trailing" constant="20" id="UHI-HW-2fW"/>
-                            <constraint firstItem="nuQ-TO-9iV" firstAttribute="top" secondItem="vGZ-YH-8qf" secondAttribute="bottom" constant="118" id="bi6-q3-TXm"/>
-                            <constraint firstItem="vGZ-YH-8qf" firstAttribute="leading" secondItem="RFh-N3-aQY" secondAttribute="leading" constant="20" id="tPD-Oc-tcF"/>
-                            <constraint firstItem="9nw-J0-nit" firstAttribute="top" secondItem="nuQ-TO-9iV" secondAttribute="bottom" constant="118" id="zk7-1A-dPt"/>
+                            <constraint firstItem="wPF-IT-wKZ" firstAttribute="leading" secondItem="RFh-N3-aQY" secondAttribute="leading" constant="16" id="4Yp-4X-fcg"/>
+                            <constraint firstItem="wPF-IT-wKZ" firstAttribute="centerX" secondItem="231-Wf-ipC" secondAttribute="centerX" id="856-6f-peo"/>
+                            <constraint firstItem="RFh-N3-aQY" firstAttribute="trailing" secondItem="wPF-IT-wKZ" secondAttribute="trailing" constant="16" id="G6E-oO-MlF"/>
+                            <constraint firstItem="wPF-IT-wKZ" firstAttribute="centerY" secondItem="231-Wf-ipC" secondAttribute="centerY" id="IEo-AR-Nt1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RFh-N3-aQY"/>
                     </view>
@@ -1155,25 +1157,10 @@
             </objects>
             <point key="canvasLocation" x="799" y="-724"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Qk5-e4-Asa">
-            <objects>
-                <viewController id="RH9-9x-EcN" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qaW-Df-RjV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="nWU-Ee-9AM"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vrm-js-smn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1762" y="-725"/>
-        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="NPx-i0-1vX">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Ds6-sP-d6Y" customClass="TabBarViewController" customModule="MyExpenses" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabView" automaticallyAdjustsScrollViewInsets="NO" id="Ds6-sP-d6Y" customClass="TabBarViewController" customModule="MyExpenses" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q3I-n3-Kzc">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -1377,6 +1364,6 @@
         <image name="new_user_group" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HzO-Kq-gc3"/>
+        <segue reference="Ee9-uz-zjD"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -116,6 +116,27 @@ class MyRealmUtils {
         return results.first?.session
     }
     
+    static public func existsSession(with realm: Realm) -> Bool {
+        let predicate = NSPredicate(format: "primaryKey = %d", 1)
+        
+        let results = realm.objects(UserSession.self).filter(predicate)
+        
+        return results.count > 0
+    }
+    
+    static public func deleteSession(with realm: Realm) {
+       
+        let sessions = realm.objects(UserSession.self)
+        
+        do {
+            try realm.write {
+                realm.delete(sessions)
+            }
+        } catch {
+            print("Cannot delete session")
+        }
+    }
+    
     static func getLasStringForUpdateInRealm(realm: Realm) -> String? {
         let predicate = NSPredicate(format: "id = %@", "1")
         
